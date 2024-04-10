@@ -1,16 +1,12 @@
-import os
-ls = [i for i in os.listdir('Files') if i.endswith('.txt')]
+# Функция для открытия файлов
+def openFiles(file, fileName, list_linesOfFile):
+  with open (file, 'r', encoding='utf-8') as fileName:
+    list_linesOfFile = fileName.readlines()
+    return list_linesOfFile
 
-for key in ls:
-
-  with open ('c:/Users/Админ/Desktop/ReadFiles/Files/1.txt', 'r', encoding='utf-8') as file1:
-    list_linesOfFile1 = file1.readlines()
-
-  with open ('c:/Users/Админ/Desktop/ReadFiles/Files/2.txt', 'r', encoding='utf-8') as file2:
-    list_linesOfFile2 = file2.readlines()
-
-  with open ('c:/Users/Админ/Desktop/ReadFiles/Files/3.txt', 'r', encoding='utf-8') as file3:
-    list_linesOfFile3 = file3.readlines()
+list_linesOfFile1 = openFiles('c:/Users/Админ/Desktop/ReadFiles/Files/1.txt', 'file1', 'list_linesOfFile1') 
+list_linesOfFile2 = openFiles('c:/Users/Админ/Desktop/ReadFiles/Files/2.txt', 'file2', 'list_linesOfFile2')
+list_linesOfFile3 = openFiles('c:/Users/Админ/Desktop/ReadFiles/Files/3.txt', 'file3', 'list_linesOfFile3')
 
 with open ('result.txt', 'w', encoding='utf-8') as file_result:
   all_files_length_dict = {'1.txt': [list_linesOfFile1, len(list_linesOfFile1)], '2.txt': [
